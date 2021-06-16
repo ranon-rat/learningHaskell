@@ -1,5 +1,12 @@
+getBiggerValue::[Int]->Int
+getBiggerValue y=do
+    filter (>head y) y
+    if length y >1 then
+        return getBiggerValue
+        
+    else return y !!0
+    
+
 main::IO()
 main=do
-    let aux=0
-    mapM (\x->if aux<x then let aux=x ) [1,2,3]
-    print (aux)
+    print getBiggerValue [1,2,3]
